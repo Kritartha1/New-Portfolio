@@ -6,49 +6,92 @@ import projImg3 from "../assets/img/project-img3.png";
 import projImg6 from "../assets/img/project-img6.png";
 import projImg7 from "../assets/img/project-img7.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import azure from "../assets/img/azure.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
 export const Projects = () => {
+  const backend=[
+    {
+      title: "Aadhaar verification site",
+      description:
+        "Backend done with DOTNet core including MSSQL database",
+      imgUrl: "https://fabric.inc/wp-content/uploads/2021/08/frontend-backend.png",
+      url:"https://github.com/Kritartha1/AdhaarApi",
+
+    },
+    {
+      title: "Doctor Appointment system",
+      description:
+      "Can book a slot with doctor. Backend done with DOTNet core including MSSQL database",
+      imgUrl: "https://fabric.inc/wp-content/uploads/2021/08/frontend-backend.png",
+      url:"https://github.com/Kritartha1/DocPatientAppointment",
+
+    }
+    ,
+    {
+      title: "Face Recognition system",
+      description:
+      "Used Python and OpenCV",
+      imgUrl: "https://fabric.inc/wp-content/uploads/2021/08/frontend-backend.png",
+      url:"https://github.com/Kritartha1/OPEN-CV",
+
+    }
+  ]
   const projects = [
     {
       title: "Discord Clone",
       description:
         "Tried to implement the responsiveness of Discord with the help of Angular",
       imgUrl: projImg6,
+      url:"https://github.com/Kritartha1/HexusUI",
     },
     {
       title: "IdentifyMe",
       description: "Address verification site with the help of Aadhaar card",
       imgUrl: projImg7,
+      url:"https://github.com/Kritartha1/AdhaarApi",
     },
     {
       title: "Virtual Painter",
       description:
         "Can virtualy draw with the help o hand gestures in front of camera",
       imgUrl: "https://i.ytimg.com/vi/ZiwZaAVbXQo/maxresdefault.jpg",
+      url:"https://github.com/Kritartha1/VirtualAI_painter",
     },
+    
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Video chatting site",
+      description: "Made with the help of WebRTC and React",
       imgUrl: vidChat,
+      url:"https://github.com/Kritartha1/Video-chat-app",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "InterviewAI",
+      description: "Mock interview site with AI with the help of Python, React and OpenAI",
       imgUrl: interview2,
+      url:"https://github.com/Kritartha1/64bit",
+    },
+    
+  ];
+
+  const certificates=[
+    {
+      title: " Build ASP.NET Core Web API - Scratch To Finish (.NET8 API)  ",
+      description: "Course",
+      imgUrl: 'https://udemy-certificate.s3.amazonaws.com/image/UC-78e5f5f9-13f5-4809-b56b-03b1c25fc374.jpg?v=1717351780000',
+      url:"https://www.udemy.com/certificate/UC-78e5f5f9-13f5-4809-b56b-03b1c25fc374/",
+      //udemy dot net
+
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-  ];
+      title: "AZ-900",
+      description: "Microsoft Certified: Azure Fundamentals",
+      imgUrl: azure,
+      url:"https://learn.microsoft.com/en-us/users/kritarthanath-6017/credentials/78a354a5215246ec?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+      //azure
+    }
+  ]
 
   return (
     <section className="project" id="projects">
@@ -64,11 +107,7 @@ export const Projects = () => {
                 >
                   <h2>Projects</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                  
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
@@ -77,13 +116,13 @@ export const Projects = () => {
                       id="pills-tab"
                     >
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                        <Nav.Link eventKey="first">Projects</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                        <Nav.Link eventKey="second">BackEnd</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Tab 3</Nav.Link>
+                        <Nav.Link eventKey="third">Courses/Certificates</Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content
@@ -99,23 +138,19 @@ export const Projects = () => {
                           })}
                         </Row>
                       </Tab.Pane>
-                      <Tab.Pane eventKey="section">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
-                        </p>
+                      <Tab.Pane eventKey="second">
+                      <Row>
+                          {backend.map((project, index) => {
+                            return <ProjectCard key={index} {...project} />;
+                          })}
+                        </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
-                        </p>
+                      <Row>
+                          {certificates.map((project, index) => {
+                            return <ProjectCard key={index} {...project} />;
+                          })}
+                        </Row>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
